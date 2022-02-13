@@ -1,0 +1,38 @@
+<div class="container mt-5 mb-5">
+    <h3>Create Employee</h3>
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-row">
+            <div class="col-md-4 mb-3">
+                <label for="name">Name</label>
+                <input type="text" class="form-control" name="name" #name="ngModel" [(ngModel)]="organization.name"
+                    placeholder="Organization name" required>
+                <div *ngIf="name?.touched && name?.invalid" class="invalid-feedback">
+                    Please provide a organization name
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="address">Address</label>
+                <input type="text" class="form-control" name="address" #address="ngModel"
+                    [(ngModel)]="organization.address" placeholder="Organaization address" required>
+                <div *ngIf="address?.touched && address?.invalid" class="invalid-feedback">
+                    Please provide the organization address.
+                </div>
+            </div>
+
+
+            <div class="col-md-4 mb-3">
+                <label for="registationNumber">Registation Number</label>
+                <input type="number" class="form-control" name="registationNumber" #registationNumber="ngModel"
+                    [(ngModel)]="organization.registationNumber" placeholder="Registation Name" required>
+                <div *ngIf="registationNumber?.touched && registationNumber?.invalid" class="invalid-feedback">
+                    Please provide the organization Registation Number.
+                </div>
+            </div>
+
+        </div>
+        <button class="btn btn-primary" type="submit" [disabled]="form.invalid">Create Organaization <i
+                *ngIf="isCreating" class="fa fa-spinner fa-pulse fa-fw"></i></button>
+    </form>
+</div>

@@ -1,0 +1,30 @@
+<div class="container mt-5 mb-5">
+
+    <div>
+        <h3>
+            Organization List
+            <i *ngIf="isLoading" class="fa fa-refresh fa-spin fa-fw" aria-hidden="true"></i>
+            <i *ngIf="!isLoading" class="fa fa-refresh" aria-hidden="true"></i>
+        </h3>
+    </div>
+    <br>
+
+    <table class="table table-bordered" *ngIf="organizationList">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">#id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Address</th>
+                <th scope="col">Reg No</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let organization of organizationList">
+                <th scope="row">{{organization.id}}</th>
+                <td>{{organization.name}}</td>
+                <td>{{organization.address}}</td>
+                <td>{{organization.registationNumber}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
