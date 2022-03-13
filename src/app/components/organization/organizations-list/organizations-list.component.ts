@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl,Validators } from '@angular/forms';
+
 import { OrganizationModel } from 'src/app/models/organization.model';
 import { OrganisationService } from 'src/app/services/organisation.service';
+
 
 @Component({
   selector: 'app-organizations-list',
@@ -10,9 +13,12 @@ import { OrganisationService } from 'src/app/services/organisation.service';
 export class OrganizationsListComponent implements OnInit {
   isLoading = false;
   organizationList: OrganizationModel[] | undefined;
-
+  organization = new OrganizationModel();
   constructor(private organizationService: OrganisationService) {}
+ 
 
+
+  
   ngOnInit(): void {
     this.getList();
   }
@@ -30,4 +36,22 @@ export class OrganizationsListComponent implements OnInit {
       },
     });
   }
+
+  onDelete(id:string){
+    this.organizationService.delete(id)
+    .subscribe(
+      res=>{
+        this.getList();          
+      },
+      err=>{console.log(err)}
+    )
+  }
+
+  
+   
+  
+  
+
+   
+
 }

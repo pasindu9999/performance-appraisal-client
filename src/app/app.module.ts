@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,9 @@ import { OrganizationsListComponent } from './components/organization/organizati
 import { CreateOrganizationComponent } from './components/organization/create-organization/create-organization.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ToastrModule, ToastrService } from 'ngx-toastr';
+import { EditOrganizationComponent } from './components/organization/edit-organization/edit-organization.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +20,9 @@ import { FormsModule } from '@angular/forms';
     SideNavComponent,
     OrganizationsListComponent,
     CreateOrganizationComponent,
+    EditOrganizationComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule, NgbModule,ToastrModule],
   providers: [],
   bootstrap: [AppComponent],
 })
