@@ -3,4 +3,7 @@ export class OrganizationModel {
   name!: string;
   address!: string;
   registationNumber!: number;
+  image!:string;
+  webLink!:string;
+  useremail!:string;
 }

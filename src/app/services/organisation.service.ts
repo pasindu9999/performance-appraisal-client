@@ -14,7 +14,21 @@ export class OrganisationService {
     return this.http.get<OrganizationModel[]>(`${this._baseUrl}/list`);
   }
 
+  getOrganization(id:string) {
+    return this.http.get<OrganizationModel[]>(`${this._baseUrl}/by-id`);
+  }
+
   create(organization: OrganizationModel) {
     return this.http.post<string>(`${this._baseUrl}/create`, organization);
   }
+
+  putData(organization: OrganizationModel){  
+    return this.http.put(`${this._baseUrl}/update`, organization);  
+  } 
+
+  delete(id:any){
+    return this.http.delete(`${this._baseUrl}/delete?id=`+id);
+  }
+
+  
 }
