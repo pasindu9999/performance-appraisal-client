@@ -10,6 +10,8 @@ import { ViewDepartmentComponent } from './components/departments/view-departmen
 import { TeamListComponent } from './components/teams/team-list/team-list.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 import { ViewTeamComponent } from './components/teams/view-team/view-team.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { LoginComponent } from './components/auth/login/login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'organization/list', pathMatch: 'full' },
@@ -35,6 +37,9 @@ const routes: Routes = [
     component: AuthLayoutComponent,
     children: [{ path: '', redirectTo: 'signup', pathMatch: 'full' }],
   },
+
+  { path: 'resgister', component:SignupComponent},
+  { path: 'login', component:LoginComponent}
 ];
 
 @NgModule({
