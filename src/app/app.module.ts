@@ -7,7 +7,7 @@ import { HeaderComponent } from './components/layout/header/header.component';
 import { OrganizationsListComponent } from './components/organization/organizations-list/organizations-list.component';
 import { CreateOrganizationComponent } from './components/organization/create-organization/create-organization.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
 import { AuthLayoutComponent } from './components/layout/auth-layout/auth-layout.component';
 import { FooterComponent } from './components/layout/footer/footer.component';
@@ -20,6 +20,9 @@ import { ViewTeamComponent } from './components/teams/view-team/view-team.compon
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 import { TeamListComponent } from './components/teams/team-list/team-list.component';
 import { EditOrganizationComponent } from './components/organization/edit-organization/edit-organization.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { SignupComponent } from './components/auth/signup/signup.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -38,10 +41,12 @@ import { EditOrganizationComponent } from './components/organization/edit-organi
     ViewTeamComponent,
     TeamListComponent,
     CreateTeamComponent,
-    EditOrganizationComponent
+    EditOrganizationComponent,
+    LoginComponent,
+    SignupComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
