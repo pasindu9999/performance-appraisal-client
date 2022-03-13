@@ -1,6 +1,6 @@
 
 <div class="container mt-5 mb-5">
-    <h3>Create Employee</h3>
+    <h3>Create Organization</h3>
     <form #form="ngForm" (ngSubmit)="onSubmit()">
 
         <div class="form-row">
@@ -30,6 +30,31 @@
                 <div *ngIf="registationNumber?.touched && registationNumber?.invalid" class="invalid-feedback">
                     Please provide the organization Registation Number.
                 </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="webLink">Website Link</label>
+                <input type="text" class="form-control" name="webLink" #webLink="ngModel"
+                    [(ngModel)]="organization.webLink" placeholder="Website link" required>
+                <div *ngIf="webLink?.touched && webLink?.invalid" class="invalid-feedback">
+                    Please provide the organization website link.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="image">Logo</label>
+                <input type="file" class="form-control" name="image" #image="ngModel"
+                    [(ngModel)]="organization.image" placeholder="logo" >
+                <div *ngIf="image?.touched && image?.invalid" class="invalid-feedback">
+                    Please provide the organization logo.
+                </div>
+            </div>
+
+            <div class="col-md-4 mb-3">
+                <label for="image">Name</label>
+                <input type="text" class="form-control" name="image" #image="ngModel" [(ngModel)]="organization.image"
+                    placeholder="Organization image" >
+                
             </div>
 
         </div>

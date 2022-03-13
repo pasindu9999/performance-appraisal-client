@@ -1,3 +1,4 @@
+import { EditOrganizationComponent } from './components/organization/edit-organization/edit-organization.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateOrganizationComponent } from './components/organization/create-organization/create-organization.component';
@@ -14,7 +15,7 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'organization/list', pathMatch: 'full' },
+  { path: '', redirectTo: 'organization/create', pathMatch: 'full' },
   { path: 'organization/list', component: OrganizationsListComponent },
   { path: 'organization/create', component: CreateOrganizationComponent },
   //admin routing

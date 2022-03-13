@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,7 @@ import { ViewDepartmentComponent } from './components/departments/view-departmen
 import { ViewTeamComponent } from './components/teams/view-team/view-team.component';
 import { CreateTeamComponent } from './components/teams/create-team/create-team.component';
 import { TeamListComponent } from './components/teams/team-list/team-list.component';
+import { EditOrganizationComponent } from './components/organization/edit-organization/edit-organization.component';
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './services/auth.service';
@@ -40,8 +41,9 @@ import { AuthService } from './services/auth.service';
     ViewTeamComponent,
     TeamListComponent,
     CreateTeamComponent,
+    EditOrganizationComponent,
     LoginComponent,
-    SignupComponent,
+    SignupComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [AuthService],
