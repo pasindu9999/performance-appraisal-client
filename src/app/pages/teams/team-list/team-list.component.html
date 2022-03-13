@@ -1,0 +1,65 @@
+<br><br><br>
+<div class="container">
+  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-team">
+    Create new Team
+  </button>
+</div>
+<br>
+<div class="col">
+  <div class="card shadow">
+    <div class="card-header border-0">
+      <h3 class="mb-0">Team List</h3>
+    </div>
+    <div class="table-responsive">
+      <table class="table align-items-center table-flush">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Team Name</th>
+            <th scope="col">Department Name</th>
+            <th scope="col">Team Leader</th>
+            <th scope="col">No Of Employee</th>
+            <th class="text-right">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr routerLink="../view-team">
+            <th scope="row">T1000</th>
+            <td>IT 1</td>
+            <td>IT</td>
+            <td>Samith Kumara</td>
+            <td>5</td>
+            <td class="text-right">
+              <!--button (click)="onEdit(department)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Edit</!--button-->
+              <button type="button" class="btn btn-danger mx-3">Delete</button>
+            </td>
+            <!--td class="text-right">
+              <div class="dropdown">
+                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <i class="fas fa-ellipsis-v"></i>
+                </a>
+                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
+                  <a class="dropdown-item" href="#">View</a>
+                  <a class="dropdown-item" href="#">Edit</a>
+                  <a class="dropdown-item" href="#">Delete</a>
+                </div>
+              </div>
+            </!--td-->
+          </tr>
+          <tr *ngFor="let team of teamList" routerLink="../view-team">
+            <th scope="row">T{{team.regNo}}</th>
+            <td>{{team.name}}</td>
+            <td>{{team.departmentName}}</td>
+            <td>{{team.leaderName}}</td>
+            <td>{{team.noOfEmployees}}</td>
+            <td class="text-right">
+              <!--button (click)="onEdit(department)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Edit</!--button-->
+              <button (click)="delete(team)" type="button" class="btn btn-danger mx-3">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
