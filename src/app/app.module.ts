@@ -23,6 +23,8 @@ import { EditOrganizationComponent } from './components/organization/edit-organi
 import { LoginComponent } from './components/auth/login/login.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './services/auth.service';
+import { CreatePAComponent } from './components/pa-sheet/create-pa/create-pa.component';
+import { ViewPAComponent } from './components/pa-sheet/view-pa/view-pa.component';
 
 @NgModule({
   declarations: [
@@ -43,7 +45,9 @@ import { AuthService } from './services/auth.service';
     CreateTeamComponent,
     EditOrganizationComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CreatePAComponent,
+    ViewPAComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [AuthService],

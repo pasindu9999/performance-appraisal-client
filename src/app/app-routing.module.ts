@@ -13,6 +13,7 @@ import { CreateTeamComponent } from './components/teams/create-team/create-team.
 import { ViewTeamComponent } from './components/teams/view-team/view-team.component';
 import { SignupComponent } from './components/auth/signup/signup.component';
 import { LoginComponent } from './components/auth/login/login.component';
+import { CreatePAComponent } from './components/pa-sheet/create-pa/create-pa.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'organization/create', pathMatch: 'full' },
@@ -29,6 +30,7 @@ const routes: Routes = [
       { path: 'team-list', component: TeamListComponent },
       { path: 'create-team', component: CreateTeamComponent },
       { path: 'view-team', component: ViewTeamComponent },
+      { path: 'create-pa', component: CreatePAComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
     ],
   },
