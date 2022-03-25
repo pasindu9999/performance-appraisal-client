@@ -17,19 +17,19 @@ export class PAsheetService {
   }
 
   getPAsheet(id:string) {
-    return this.http.get<PAsheetModel[]>(`${this._baseUrl}/by-id`);
+    return this.http.get<PAsheetModel[]>(`${this._baseUrl}/by-id?id=`+id);
   }
 
   create(pasheet: PAsheetModel) {
     return this.http.post(`${this._baseUrl}/create`, pasheet, {responseType:'text'});
   }
 
-  putData(pasheet: PAsheetModel){  
-    return this.http.put(`${this._baseUrl}/update`, pasheet);  
-  } 
+  update(pasheet: PAsheetModel){
+    return this.http.put<PAsheetModel>(`${this._baseUrl}/update`, pasheet);
+  }
 
   delete(id:any){
-    return this.http.delete(`${this._baseUrl}/delete?id=`+id);
+    return this.http.delete<string>(`${this._baseUrl}/delete?id=`+id);
   }
 
 }

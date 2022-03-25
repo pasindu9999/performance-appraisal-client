@@ -22,5 +22,6 @@ export class DepartmentService {
   }
   delete(id : any) {
     return this.http.delete<string>(`${this._baseUrl}/delete?id=`+id);
+
   }
 }

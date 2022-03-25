@@ -25,6 +25,9 @@ import { SignupComponent } from './components/auth/signup/signup.component';
 import { AuthService } from './services/auth.service';
 import { CreatePAComponent } from './components/pa-sheet/create-pa/create-pa.component';
 import { ViewPAComponent } from './components/pa-sheet/view-pa/view-pa.component';
+import { PaListComponent } from './components/pa-sheet/pa-list/pa-list.component';
+import { EditPaComponent } from './components/pa-sheet/edit-pa/edit-pa.component';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +50,9 @@ import { ViewPAComponent } from './components/pa-sheet/view-pa/view-pa.component
     LoginComponent,
     SignupComponent,
     CreatePAComponent,
-    ViewPAComponent
+    ViewPAComponent,
+    PaListComponent,
+    EditPaComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [AuthService],
