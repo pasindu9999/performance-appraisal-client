@@ -11,14 +11,14 @@
       <h3 class="mb-0">PA Sheet List</h3>
     </div>
     <div class="table-responsive">
-      <table class="table align-items-center table-flush">
+      <table class="table align-items-center table-hover">
         <thead class="thead-light">
           <tr>
             <th scope="col">Department Name</th>
             <th scope="col">Department Head</th>
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
-            <th class="text-right">Action</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -45,10 +45,10 @@
             </td-->
           </tr>
           <tr *ngFor="let pa of paList">
-            <th scope="row">{{pa.department}}</th>
-            <td>{{pa.dep_Head_Name}}</td>
-            <td>{{pa.start_date}}</td>
-            <td>{{pa.due_date}}</td>
+            <th scope="row" routerLink="../reviewer-pa">{{pa.department}}</th>
+            <td routerLink="../reviewer-pa">{{pa.dep_Head_Name}}</td>
+            <td routerLink="../reviewer-pa">{{pa.start_date}}</td>
+            <td routerLink="../reviewer-pa">{{pa.due_date}}</td>
             <td td class="text-right">
               <button (click)="edit(pa.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-pa">Edit</button>
               <button (click)="delete(pa.id)" type="button" class="btn btn-danger mx-3" routerLink="../pa-list">Delete</button>

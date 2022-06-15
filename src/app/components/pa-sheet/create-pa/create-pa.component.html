@@ -26,7 +26,7 @@
                         <label class="form-control-label" for="input-username">Department</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative"
                         name="department" #department="ngModel" [(ngModel)]="pasheet.department"
-                        placeholder="Department" value="IT">
+                        placeholder="Department" value="IT"  required>
                       </div>
                     </div>
                   </div>
@@ -35,7 +35,7 @@
                         <div class="form-group focused">
                           <label class="form-control-label" for="input-username">Department Head Name</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative"
-                        name="dep_Head_Name" #dep_Head_Name="ngModel" [(ngModel)]="pasheet.dep_Head_Name" placeholder="Department Head Name">
+                        name="dep_Head_Name" #dep_Head_Name="ngModel" [(ngModel)]="pasheet.dep_Head_Name" placeholder="Department Head Name"  required>
                         </div>
                       </div>
                     </div>
@@ -46,7 +46,7 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-first-name">Start date</label>
                         <input type="datetime-local" id="input-first-name" class="form-control form-control-alternative"
-                         name="start_date" #start_date="ngModel" [(ngModel)]="pasheet.start_date"  placeholder="Start date" value="2022/1/1">
+                         name="start_date" #start_date="ngModel" [(ngModel)]="pasheet.start_date"  placeholder="Start date" value="2022/1/1" required>
                       </div>
                     </div>
                   </div>
@@ -56,12 +56,15 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-last-name">Due date</label>
                         <input type="datetime-local" id="input-last-name" class="form-control form-control-alternative"
-                        name="due_date" #due_date="ngModel" [(ngModel)]="pasheet.due_date" placeholder="Due date" value="2022/3/13">
+                        name="due_date" #due_date="ngModel" [(ngModel)]="pasheet.due_date" placeholder="Due date" value="2022/3/13" required>
                       </div>
                     </div>
                   </div>
+
+
+
                   <div class="row justify-content-end">
-                    <div class="form-group col-sm-6"> <button type="submit" class="btn-block btn-primary">Create PA sheet</button> </div>
+                    <div class="form-group col-sm-6"> <button type="submit" class="btn btn-primary" style="float:right">Create PA sheet</button> </div>
                   </div>
 
             </div>

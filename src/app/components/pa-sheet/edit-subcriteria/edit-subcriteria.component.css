@@ -72,6 +72,7 @@ h2,
 h3 {
   margin-top: 0;
   margin-bottom: .5rem;
+  color: white !important;
 }
 
 p {
@@ -131,7 +132,10 @@ img {
 table {
   border-collapse: collapse;
 
-  border-color: #000 ;
+  border-color: #000;
+
+  border-top: 4 px;
+
 
 }
 
@@ -145,7 +149,7 @@ caption {
 
 th {
   text-align: inherit;
-  border-radius: 1pt;
+  border-radius: 2pt;
   border-color: #000;
 
 }
@@ -319,7 +323,6 @@ h3,
   flex-basis: 0;
   flex-grow: 1;
 
-
 }
 
 @media (min-width: 1200px) {
@@ -346,8 +349,6 @@ h3,
 
 }
 
-
-
 .table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid #000000 !important;
@@ -373,10 +374,6 @@ h3,
   background-color: #ff0000 !important;
   border-radius: 15 px !important;
   border-color: #000 !important;
-  font-size: medium;
-  font-weight: bold;
-  
-
 }
 
 .table .thead-light th {
@@ -467,6 +464,7 @@ a.btn.disabled {
   line-height: 1.5;
   padding: .25rem .5rem;
   border-radius: .375rem;
+
 }
 
 .dropdown {
@@ -564,7 +562,7 @@ a.btn.disabled {
   margin-bottom: 0;
   padding: 1.25rem 1.5rem;
   border-bottom: 1px solid rgba(0, 0, 0, .05);
-  background-color: #fff;
+  background-color: rgb(93, 91, 215);
 }
 
 .card-header:first-child {

@@ -27,6 +27,12 @@ import { CreatePAComponent } from './components/pa-sheet/create-pa/create-pa.com
 import { ViewPAComponent } from './components/pa-sheet/view-pa/view-pa.component';
 import { PaListComponent } from './components/pa-sheet/pa-list/pa-list.component';
 import { EditPaComponent } from './components/pa-sheet/edit-pa/edit-pa.component';
+import { ReviewerPaComponent } from './components/pa-sheet/reviewer-pa/reviewer-pa.component';
+import { CreateCriteriaComponent } from './components/pa-sheet/create-criteria/create-criteria.component';
+import { EditCriteriaComponent } from './components/pa-sheet/edit-criteria/edit-criteria.component';
+import { CreateSubcriteriaComponent } from './components/pa-sheet/create-subcriteria/create-subcriteria.component';
+import { EditSubcriteriaComponent } from './components/pa-sheet/edit-subcriteria/edit-subcriteria.component';
+
 
 
 @NgModule({
@@ -52,7 +58,13 @@ import { EditPaComponent } from './components/pa-sheet/edit-pa/edit-pa.component
     CreatePAComponent,
     ViewPAComponent,
     PaListComponent,
-    EditPaComponent
+    EditPaComponent,
+    ReviewerPaComponent,
+    CreateCriteriaComponent,
+    EditCriteriaComponent,
+    CreateSubcriteriaComponent,
+    EditSubcriteriaComponent,
+
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [AuthService],

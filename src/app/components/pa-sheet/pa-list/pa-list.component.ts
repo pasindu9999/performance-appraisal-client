@@ -35,8 +35,11 @@ export class PaListComponent implements OnInit {
 
   delete(id: string){
     console.log(id);
+    if(confirm("Are you sure to delete "+name)) {
+      console.log("PA sheet deleted");
+
     this.pasheetService.delete(id).subscribe(res=>{
-      alert("Are you sure delete pa sheet?");
+      
       this.getList();
     },
     error=>{
@@ -45,11 +48,12 @@ export class PaListComponent implements OnInit {
       alert("Something went wrong")
     })
   }
+}
 
   edit(id: string){
 
     localStorage.setItem('id',JSON.stringify(id));
-    
+
 
   }
 

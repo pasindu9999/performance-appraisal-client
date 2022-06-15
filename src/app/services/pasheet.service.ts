@@ -8,7 +8,7 @@ import { PAsheetModel } from '../models/pasheet.model';
 })
 export class PAsheetService {
 
-  private _baseUrl = 'https://localhost:5001/api/PA_sheet';
+  private _baseUrl = 'https://localhost:5001/api/PAsheet';
 
   constructor(private http: HttpClient) {}
 

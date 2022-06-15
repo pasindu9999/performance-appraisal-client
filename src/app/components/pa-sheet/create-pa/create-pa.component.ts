@@ -13,6 +13,7 @@ export class CreatePAComponent implements OnInit {
   pasheet = new PAsheetModel();
   isCreating = false;
 
+
   constructor(private pasheetService: PAsheetService, private route: ActivatedRoute , private router: Router ) { }
 
   ngOnInit(): void {}
@@ -21,6 +22,7 @@ export class CreatePAComponent implements OnInit {
     this.isCreating = true;
     this.pasheetService.create(this.pasheet).subscribe({
       next: (res) => {
+
         this.isCreating = false;
         this.pasheet = new PAsheetModel();
         alert("PA sheet Created");
@@ -32,5 +34,7 @@ export class CreatePAComponent implements OnInit {
       },
     });
   }
+
+  
 
 }

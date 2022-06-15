@@ -319,7 +319,6 @@ h3,
   flex-basis: 0;
   flex-grow: 1;
 
-
 }
 
 @media (min-width: 1200px) {
@@ -346,8 +345,6 @@ h3,
 
 }
 
-
-
 .table thead th {
   vertical-align: bottom;
   border-bottom: 2px solid #000000 !important;
@@ -370,13 +367,9 @@ h3,
 .table .thead-dark th {
   color: #f8f9fe !important;
 
-  background-color: #ff0000 !important;
+  background-color: #4400ff !important;
   border-radius: 15 px !important;
   border-color: #000 !important;
-  font-size: medium;
-  font-weight: bold;
-  
-
 }
 
 .table .thead-light th {
@@ -556,7 +549,7 @@ a.btn.disabled {
   word-wrap: break-word;
   border: 1px solid rgba(0, 0, 0, .05);
   border-radius: .375rem;
-  background-color: #fff;
+  background-color: rgb(255, 255, 255);
   background-clip: border-box;
 }
 

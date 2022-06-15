@@ -17,6 +17,11 @@ import { PaListComponent } from './components/pa-sheet/pa-list/pa-list.component
 import { CreatePAComponent } from './components/pa-sheet/create-pa/create-pa.component';
 import { ViewPAComponent } from './components/pa-sheet/view-pa/view-pa.component';
 import { EditPaComponent } from './components/pa-sheet/edit-pa/edit-pa.component';
+import { ReviewerPaComponent } from './components/pa-sheet/reviewer-pa/reviewer-pa.component';
+import { CreateCriteriaComponent } from './components/pa-sheet/create-criteria/create-criteria.component';
+import { EditCriteriaComponent } from './components/pa-sheet/edit-criteria/edit-criteria.component';
+import { CreateSubcriteriaComponent } from './components/pa-sheet/create-subcriteria/create-subcriteria.component';
+import { EditSubcriteriaComponent } from './components/pa-sheet/edit-subcriteria/edit-subcriteria.component';
 
 
 const routes: Routes = [
@@ -38,6 +43,11 @@ const routes: Routes = [
       { path: 'create-pa', component: CreatePAComponent },
       { path: 'view-pa', component: ViewPAComponent },
       { path: 'edit-pa', component: EditPaComponent },
+      { path: 'reviewer-pa', component: ReviewerPaComponent },
+      { path: 'create-criteria', component: CreateCriteriaComponent },
+      { path: 'edit-criteria', component: EditCriteriaComponent },
+      { path: 'create-subcriteria', component:CreateSubcriteriaComponent },
+      { path: 'edit-subcriteria', component:EditSubcriteriaComponent },
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
     ],

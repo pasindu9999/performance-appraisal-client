@@ -1,22 +1,9 @@
+
 <br><br>
-<!-- <div class="container">
-  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-criteria">
-    Create new Criteria Group
-  </button>
-</div> -->
+
+
+
 <br>
-
-<div class="container">
-  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-criteria">
-    Create new Criteria Group
-  </button>
-
-  <button type="button" class="btn btn-primary" style="border-radius:5px; float: right;" routerLink="../create-subcriteria">
-    Create new Criteria
-  </button>
-</div>
-
-<br><br>
 
 <!-- <div class="container-fluid mt--7" *ngIf="show">
   <div class="row">
@@ -109,47 +96,34 @@
       <thead class="thead-dark">
         <tr>
           <th scope="col-2">Performance Appraisal Criteria</th>
-          <th scope="col-3">Employee Self Rating</th>
-          <th scope="col-3">Peer Rating</th>
-          <th scope="col-4">Team Lead Rating</th>
-          <th scope="col-4">Action</th>
+
+          <th scope="col-4">Rating</th>
 
         </tr>
       </thead>
-      <tbody *ngFor="let criteriaGroup of criteriaGroups" style="border-width: 0;">
+      <tbody *ngFor="let pa of criteriaGroups" style="border-width: 0;">
 
-        <tr class="table-danger" style="font-weight: bold;">
-          <td scope="col-2" >
-          {{criteriaGroup.name}}
-           </td>
-          <td scope="col-3">{{criteriaGroup.weightages}}%</td>
-          <td scope="col-3">{{criteriaGroup.weightages}}%</td>
-          <td scope="col-4">{{criteriaGroup.weightages}}%</td>
-          <td scope="col-4">
-            <button (click)="edit(criteriaGroup.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-sm btn-primary" routerLink="../edit-criteria">Edit</button>
+        <tr class="table-primary" style="font-weight: bold;">
+          <td scope="col-2">{{pa.name}}</td>
+          <td scope="col-3">{{pa.weightages}}%</td>
 
-            <button (click)="delete(criteriaGroup.id)" type="button" class="btn btn-sm btn-danger">Delete</button> 
-
-
-        </td>
 
         </tr>
-        <tr *ngFor="let criteria of  criterias" routerLink="../edit-subcriteria">
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">{{criteria.name}}</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">
-          </td>
+        <tr *ngFor="let pa1 of criterias">
+            <td *ngIf="pa.id ==pa1.groupId">{{pa1.name}}</td>
 
+            <td *ngIf="pa.id ==pa1.groupId">
+              <select class="form-control form-control-sm">
+                <option selected>Score</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+              </select>
+            </td>
+           
         </tr>
-
-        <tr class="table-tr-crit" style="font-weight: bold;  border-top: solid black; border-bottom: solid black; text-align: center;color: red;">
-          <td>PA Score for this section</td>
-          <td style="text-align:left ;">5</td>
-          <td style="text-align:left ;">5</td>
-          <td style="text-align:left ;">5</td>
-      </tr>
 
 
       </tbody>
@@ -158,8 +132,12 @@
   </div>
 </div>
 
+<br>
+<br><br>
 
-<!-- <button (click)="edit(pa.id)" routerLink="../edit-criteria"  -->
+<div class="container">
 
-  <!-- <button (click)="edit(pa.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-pa">Edit</button>
-  <button (click)="delete(pa.id)" type="button" class="btn btn-danger mx-3" routerLink="../pa-list">Delete</button> -->
+  <button type="button" class="btn btn-success btn-lg" style="border-radius:5px; float: right; padding: 16px 24px;">
+    Submit
+  </button>
+</div>
