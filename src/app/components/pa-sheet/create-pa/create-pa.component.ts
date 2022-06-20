@@ -27,7 +27,7 @@ export class CreatePAComponent implements OnInit {
         this.pasheet = new PAsheetModel();
         alert("PA sheet Created");
         console.log('response: ' + res);
-        this.router.navigate(["admin/pa-list"]);
+        this.router.navigate(["admin/admin-pa"]);
       },
       error: (err) => {
         this.isCreating = false;
@@ -35,6 +35,6 @@ export class CreatePAComponent implements OnInit {
     });
   }
 
-  
+
 
 }

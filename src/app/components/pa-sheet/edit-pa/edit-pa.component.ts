@@ -40,7 +40,7 @@ export class EditPaComponent implements OnInit {
         this.isUpdating = false;
         alert("PA sheet Updated");
         console.log('response: ' + res);
-        this.router.navigate(["admin/pa-list"]);
+        this.router.navigate(["admin/admin-pa"]);
       },
       error: (err) => {
         this.isUpdating = false;

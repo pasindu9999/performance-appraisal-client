@@ -25,8 +25,12 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Department</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative"
-                        name="department" #department="ngModel" [(ngModel)]="paSheet.department"
+                        name="department" required #department="ngModel" [(ngModel)]="paSheet.department"
                         placeholder="Department" value="IT">
+                        <span class="text-danger"
+                          *ngIf="(department.touched||form.submitted)&& department.errors?.['required']">
+                          Department cannot be blank
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -35,7 +39,11 @@
                         <div class="form-group focused">
                           <label class="form-control-label" for="input-username">Department Head Name</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative"
-                        name="dep_Head_Name" #dep_Head_Name="ngModel" [(ngModel)]="paSheet.dep_Head_Name" placeholder="Department Head Name">
+                        name="dep_Head_Name" required #dep_Head_Name="ngModel" [(ngModel)]="paSheet.dep_Head_Name" placeholder="Department Head Name">
+                        <span class="text-danger"
+                          *ngIf="(dep_Head_Name.touched||form.submitted)&& dep_Head_Name.errors?.['required']">
+                          Department Head Name cannot be blank
+                        </span>
                         </div>
                       </div>
                     </div>
@@ -46,7 +54,11 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-first-name">Start date</label>
                         <input type="datetime-local" id="input-first-name" class="form-control form-control-alternative"
-                         name="start_date" #start_date="ngModel" [(ngModel)]="paSheet.start_date"  placeholder="Start date" value="2022/1/1">
+                         name="start_date" required #start_date="ngModel" [(ngModel)]="paSheet.start_date"  placeholder="Start date" value="2022/1/1">
+                         <span class="text-danger"
+                          *ngIf="(start_date.touched||form.submitted)&& start_date.errors?.['required']">
+                          Start DATE cannot be blank
+                        </span>
                       </div>
                     </div>
                   </div>
@@ -55,15 +67,22 @@
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-last-name">Due date</label>
                         <input type="datetime-local" id="input-last-name" class="form-control form-control-alternative"
-                        name="due_date" #due_date="ngModel" [(ngModel)]="paSheet.due_date" placeholder="Due date" value="2022/3/13">
+                        name="due_date" required #due_date="ngModel" [(ngModel)]="paSheet.due_date" placeholder="Due date" value="2022/3/13">
+                        <span class="text-danger"
+                        *ngIf="(due_date.touched||form.submitted)&& due_date.errors?.['required']">
+                        Due DATE cannot be blank
+                      </span>
                       </div>
                     </div>
                   </div>
-                  <div class="float-left">
+                  <!-- <div class="float-right">
                     <div class="form-group col-sm-6"> <button type="submit" class="btn btn-primary">Edit PA sheet</button> </div>
+                  </div> -->
+                  <div class="row justify-content-end">
+                    <div class="form-group col-sm-6"> <button type="submit" class="btn btn-primary" style="float:right" [disabled]="form.invalid">Edit PA sheet</button> </div>
                   </div>
                 </div>
-            
+
 
               </form>
             </div>

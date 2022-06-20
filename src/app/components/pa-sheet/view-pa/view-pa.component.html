@@ -1,9 +1,5 @@
 <br><br>
-<!-- <div class="container">
-  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-criteria">
-    Create new Criteria Group
-  </button>
-</div> -->
+
 <br>
 
 <div class="container">
@@ -18,92 +14,14 @@
 
 <br><br>
 
-<!-- <div class="container-fluid mt--7" *ngIf="show">
-  <div class="row">
-    <div class="col-xl-8 order-xl-1">
-      <div position=relative class="card bg-secondary shadow">
-        <div class="card-header bg-white border-0">
-          <div class="row align-items-center">
-            <div class="col-8">
-              <h3 class="mb-0">Criteria Group</h3>
-            </div>
 
-          </div>
-        </div>
-        <div class="card-body">
-          <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
-            <div class="pl-lg-4">
-              <div class="row">
-                <div class="col-lg-6">
-                  <div class="form-group focused">
-                    <label class="form-control-label" for="input-firstname">Name</label>
-                    <input type="text" id="input-firstname" name="firstName"  class="form-control form-control-alternative">
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-lastname">Weightage</label>
-                    <input type="text" id="lastname" name="lastName" class="form-control form-control-alternative">
-                  </div>
-                </div>
-              </div>
-
-
-              <div class="col-4 text-right">
-                <button class="btn btn-sm btn-primary">Save</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<br> -->
 
 <br>
 
 <div class="col">
   <div class="card shadow">
 
-    <!-- <div class="table-responsive table-bordered">
-      <table class="table align-items-center table-bordered">
-        <thead class="thead-dark">
-          <tr>
-            <th scope="col">Performance Appraisal Criteria</th>
-            <th scope="col">Employee Self Rating</th>
-            <th scope="col">Peer Rating</th>
-            <th scope="col">Team Lead Rating</th>
-            <th scope="col">Action</th>
 
-          </tr>
-
-        </thead>
-        <tbody>
-          <tr *ngFor="let pa of viewPA">
-              <table class="table" width="250%" class="border-0">
-                <tr>
-                  <th scope="col-2">{{pa.name}}</th>
-                  <th scope="col-3">10%</th>
-                  <th scope="col-3">10%</th>
-                  <th scope="col-4">10%</th>
-                  <th scope="col-4"><button routerLink="../edit-criteria" class="btn btn-sm btn-primary">Edit</button>
-                    </th>
-                </tr>
-                <tr *ngFor="let pa1 of viewPA1" style="width: 100%;">
-                  <span *ngIf="pa.id ==pa1.groupId" >
-                    <td>{{pa1.name}}</td>
-                    <td>5</td>
-                    <td>5</td>
-                    <td>5</td>
-                  </span>
-                </tr>
-              </table>
-          </tr>
-        </tbody>
-      </table>
-    </div> -->
 
     <table class="table table-hover">
       <thead class="thead-dark">
@@ -128,17 +46,17 @@
           <td scope="col-4">
             <button (click)="edit(criteriaGroup.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-sm btn-primary" routerLink="../edit-criteria">Edit</button>
 
-            <button (click)="delete(criteriaGroup.id)" type="button" class="btn btn-sm btn-danger">Delete</button> 
+            <button (click)="delete(criteriaGroup.id)" type="button" class="btn btn-sm btn-danger">Delete</button>
 
 
         </td>
 
         </tr>
-        <tr *ngFor="let criteria of  criterias" routerLink="../edit-subcriteria">
+        <tr *ngFor="let criteria of  criterias" (click)="editcriteria(criteria.id)" routerLink="../edit-subcriteria">
             <td *ngIf="criteriaGroup.id ==criteria.groupId">{{criteria.name}}</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
-            <td *ngIf="criteriaGroup.id ==criteria.groupId">5</td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
+            <td *ngIf="criteriaGroup.id ==criteria.groupId"></td>
             <td *ngIf="criteriaGroup.id ==criteria.groupId">
           </td>
 
@@ -146,9 +64,10 @@
 
         <tr class="table-tr-crit" style="font-weight: bold;  border-top: solid black; border-bottom: solid black; text-align: center;color: red;">
           <td>PA Score for this section</td>
-          <td style="text-align:left ;">5</td>
-          <td style="text-align:left ;">5</td>
-          <td style="text-align:left ;">5</td>
+          <td style="text-align:left ;"></td>
+          <td style="text-align:left ;"></td>
+          <td style="text-align:left ;"></td>
+          <td></td>
       </tr>
 
 
@@ -159,7 +78,3 @@
 </div>
 
 
-<!-- <button (click)="edit(pa.id)" routerLink="../edit-criteria"  -->
-
-  <!-- <button (click)="edit(pa.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-pa">Edit</button>
-  <button (click)="delete(pa.id)" type="button" class="btn btn-danger mx-3" routerLink="../pa-list">Delete</button> -->

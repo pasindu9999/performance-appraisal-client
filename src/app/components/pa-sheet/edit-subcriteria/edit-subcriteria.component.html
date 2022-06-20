@@ -14,14 +14,18 @@
           </div>
         </div>
         <div class="card-body">
-          <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
+          <form #form="ngForm" (ngSubmit)="onSubmit()">
             <div class="pl-lg-4">
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group focused">
                     <label class="form-control-label" for="input-name" style="color:black;">Name</label>
-                    <input type="text" class="form-control form-control-alternative" id="input-name" name="name"
-                    #name="ngModel" [(ngModel)]="criteria.name">
+                    <input type="text" class="form-control form-control-alternative" id="name" name="name"
+                    required #name="ngModel" [(ngModel)]="criteria.name">
+                    <span class="text-danger"
+                    *ngIf="(name.touched||form.submitted)&& name.errors?.['required']">
+                    Criteria Name cannot be blank
+                  </span>
                   </div>
                 </div>
 
@@ -60,11 +64,28 @@
 
 
 
-
+              <!-- <div class="row">
 
               <div class="col-1 text-right">
                 <button class="btn btn-primary" type="submit">Save Changes</button>
+
               </div>
+
+
+              <div class="col-1 text-right">
+
+                <button class="btn btn-danger"  (click)="delete(criteria.id)" style="float: right ;">Delete</button>
+              </div>
+            </div> -->
+            <div class="container">
+              <button type="button" class="btn btn-primary" type="submit" style="border-radius:5px;" [disabled]="form.invalid">
+                Save
+              </button>
+              <button type="button" class="btn btn-danger" (click)="delete(criteria.id)"  style="border-radius:5px; float: right;">
+                Delete
+              </button>
+            </div>
+
             </div>
           </form>
         </div>

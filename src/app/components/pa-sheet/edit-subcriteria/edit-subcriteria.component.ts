@@ -15,13 +15,16 @@ export class EditSubcriteriaComponent implements OnInit {
 
   isCreating = false;
   criteria : any;
+  cid : string = 'f2e66e55-b064-4b74-8178-08da4e9384c5';
+  isLoading = false;
+  criterias: criteriaModel[] | undefined;
   //criterias = new criteriaModel();
 
   constructor(private criteriaService : CriteriaService, private router: Router) { }
 
   ngOnInit(): void {
 
-    this.id = JSON.parse(localStorage.getItem('id') || '{}');
+    this.id = JSON.parse(localStorage.getItem('cid') || '{}');
     console.log(this.id);
     this.criteriaService.getcriteria(this.id).subscribe({
      next: (res)=>{
@@ -29,7 +32,7 @@ export class EditSubcriteriaComponent implements OnInit {
        console.log(this.criteria);
      },
      error : (error)=>{
-       console.log(error);
+       console.log("hello");
      },
    });
 
@@ -55,23 +58,41 @@ export class EditSubcriteriaComponent implements OnInit {
     });
   }
 
-//   delete(id: string){
-//     console.log(id);
-//     if(confirm("Are you sure to delete "+name)) {
-//       console.log("Implement delete functionality here");
+  getList() {
+    this.isLoading = true;
+    this.criteriaService.getList().subscribe({
+      next: (res) => {
+        this.criterias = res;
+        console.log(this.criterias)
+        this.isLoading = false;
+      },
 
-//     this.criteriaService.delete(id).subscribe(res=>{
+      error: (error) => {
+        console.log(error);
+        this.isLoading = false;
+      },
+    })
+  }
 
-//       this.getList();
-//     },
-//     error=>{
-//       console.log(error);
-//       this.isLoading = false;
-//       alert("Something went wrong")
-//     })
-//   }
+  delete(id: string){
+    console.log(id);
+    if(confirm("Are you sure to delete "+name)) {
 
-// }
+
+    this.criteriaService.delete(id).subscribe(res=>{
+
+      this.getList();
+      alert("Criteria Delete Successful")
+      this.router.navigate(["admin/view-pa"]);
+    },
+    error=>{
+      console.log(error);
+      this.isLoading = false;
+      alert("Something went wrong")
+    })
+  }
+
+}
 
 
 }

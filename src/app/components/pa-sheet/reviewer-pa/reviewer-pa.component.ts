@@ -60,23 +60,7 @@ export class ReviewerPaComponent implements OnInit {
 
   }
 
-  delete(id: string){
-    console.log(id);
-    if(confirm("Are you sure to delete "+name)) {
-      console.log("Implement delete functionality here");
-
-    this.criteriagroupService.delete(id).subscribe(res=>{
-
-      this.getList();
-    },
-    error=>{
-      console.log(error);
-      this.isLoading = false;
-      alert("Something went wrong")
-    })
-  }
-
-}
+  
 
   edit(id: string){
 
@@ -89,7 +73,7 @@ export class ReviewerPaComponent implements OnInit {
     console.log(this.criteria);
     this.isUpdating = true;
     this.show=false;
-    this.criteriaService.putData(this.criteria).subscribe({
+    this.criteriaService.update(this.criteria).subscribe({
       next: (res) => {
         this.isUpdating = false;
         alert("Criteria Updated");

@@ -1,18 +1,19 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PAsheetModel } from 'src/app/models/pasheet.model';
 import { PAsheetService } from 'src/app/services/pasheet.service';
 
 @Component({
-  selector: 'app-pa-list',
-  templateUrl: './pa-list.component.html',
-  styleUrls: ['./pa-list.component.css']
+  selector: 'app-admin-pa',
+  templateUrl: './admin-pa.component.html',
+  styleUrls: ['./admin-pa.component.css']
 })
-export class PaListComponent implements OnInit {
+export class AdminPaComponent implements OnInit {
 
   isLoading = false;
   paList: PAsheetModel[] | undefined;
 
-  constructor(private pasheetService: PAsheetService) { }
+  constructor(private pasheetService: PAsheetService, private router : Router) { }
 
   ngOnInit(): void {
 
@@ -33,7 +34,22 @@ export class PaListComponent implements OnInit {
     });
   }
 
- 
+  delete(id: string){
+    console.log(id);
+    if(confirm("Are you sure to delete "+name)) {
+      console.log("PA sheet deleted");
+
+    this.pasheetService.delete(id).subscribe(res=>{
+
+      this.getList();
+    },
+    error=>{
+      console.log(error);
+      this.isLoading = false;
+      alert("Something went wrong")
+    })
+  }
+}
 
   edit(id: string){
 
@@ -41,6 +57,5 @@ export class PaListComponent implements OnInit {
 
 
   }
-
 
 }

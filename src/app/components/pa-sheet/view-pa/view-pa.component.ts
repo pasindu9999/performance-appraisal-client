@@ -32,8 +32,7 @@ export class ViewPAComponent implements OnInit {
     this.getList();
 
 
-   // this. getCriteriabyGroup(this.id);
-   // this.getListbyDepartmentId(this.departmentId);
+   
 
 
   }
@@ -67,32 +66,11 @@ export class ViewPAComponent implements OnInit {
    });
   }
 
-  // getCriteriabyGroup(criteriagroupid : string){
-  //   this.isLoading = true;
-  //   this.criteriaService.getCriteriabyGroup(criteriagroupid).subscribe({
-  //     next: (res) => {
-  //       this.viewPA1 = res;
-  //       console.log(this.viewPA)
-  //       this.isLoading = false;
-  //       //return res;
-  //     },
-
-  //     error: (error) => {
-  //       console.log(error);
-  //       this.isLoading = false;
-  //     },
-  //   })
-  //   return 0;
-
-
-  // }
-
 
 
   delete(id: string){
     console.log(id);
     if(confirm("Are you sure you want to delete the criteria group")) {
-      console.log("Implement delete functionality here");
 
     this.criteriagroupService.delete(id).subscribe(res=>{
 
@@ -114,11 +92,19 @@ export class ViewPAComponent implements OnInit {
 
   }
 
+  editcriteria(cid: string){
+    console.log(cid);
+    localStorage.setItem('cid',JSON.stringify(cid));
+
+
+  }
+
+
   onSubmit() {
     console.log(this.criteria);
     this.isUpdating = true;
     this.show=false;
-    this.criteriaService.putData(this.criteria).subscribe({
+    this.criteriaService.update(this.criteria).subscribe({
       next: (res) => {
         this.isUpdating = false;
         alert("Criteria Updated");

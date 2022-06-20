@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { criteriaModel } from '../models/criteria.model';
-import { PAsheetModel } from '../models/pasheet.model';
+
 
 
 @Injectable({
@@ -34,17 +34,15 @@ export class CriteriaService {
     return this.http.post(`${this._baseUrl}/create`, criteria, {responseType:'text'});
   }
 
-  update(pasheet: PAsheetModel){
-    return this.http.put<PAsheetModel>(`${this._baseUrl}/update`, pasheet);
-  }
+
 
   delete(id:any){
-    return this.http.delete<string>(`${this._baseUrl}/delete?id=`+id);
+    return this.http.delete(`${this._baseUrl}/delete?id=`+id,{responseType:'text'});
   }
 
 
-  putData(criteria: PAsheetModel ){
-    return this.http.put(`${this._baseUrl}/update`, criteria);
+  update(criteria: criteriaModel ){
+    return this.http.put(`${this._baseUrl}/update`, criteria, {responseType:'text'});
   }
 
 }
