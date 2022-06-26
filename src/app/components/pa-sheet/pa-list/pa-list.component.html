@@ -1,9 +1,9 @@
 <br><br><br>
 <div class="container">
 
-  <!-- <button type="button" class="btn btn-success" style="border-radius:5px;" routerLink="../admin-pa">
+  <button type="button" class="btn btn-success" style="border-radius:5px;" routerLink="../admin-pa">
     Admin pa sheet
-  </button> -->
+  </button>
 </div>
 <br>
 <div class="col">
@@ -16,7 +16,7 @@
         <thead class="thead-light">
           <tr>
             <th scope="col">Department Name</th>
-            <th scope="col">Department Head</th>
+
             <th scope="col">Start Date</th>
             <th scope="col">End Date</th>
             <th class="text-center">Action</th>
@@ -25,13 +25,13 @@
         <tbody>
 
           <tr *ngFor="let pa of paList">
-            <th scope="row">{{pa.department}}</th>
-            <td>{{pa.dep_Head_Name}}</td>
+            <th scope="row">{{pa.departmentName}}</th>
+
             <td>{{pa.start_date}}</td>
             <td>{{pa.due_date}}</td>
             <td td class="text-right">
 
-              <button type="button" class="btn btn-dark mx-3" routerLink="../reviewer-pa">View</button>
+              <button type="button" (click)="view(pa.departmentId)" class="btn btn-dark mx-3" routerLink="../reviewer-pa">View</button>
 
             </td>
           </tr>

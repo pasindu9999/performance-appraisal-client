@@ -28,17 +28,7 @@
                   </span>
                   </div>
                 </div>
-                <div class="col-lg-6">
-                  <div class="form-group">
-                    <label class="form-control-label" for="input-weightages" style="color:black;">Weightage</label>
-                    <input type="number"  class="form-control form-control-alternative" id="input-weightages" name="weightages"
-                    required #weightages="ngModel" [(ngModel)]="criteriaGroup.weightages">
-                    <span class="text-danger"
-                    *ngIf="(weightages.touched||form.submitted)&& weightages.errors?.['required']">
-                    Weightages cannot be blank
-                  </span>
-                  </div>
-                </div>
+               
               </div>
 
               <div class="row">

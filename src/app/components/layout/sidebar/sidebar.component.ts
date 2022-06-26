@@ -12,6 +12,7 @@ export const ROUTES: RouteInfo[]=[
   {path: 'team-list', title:'Team',class:''},
   {path: 'employee-list', title:'Employee',class:''},
   {path: 'user-profile', title:'Profile',class:''},
+  {path: 'view-criteria', title:'Criteria',class:''},
 
 
 ];

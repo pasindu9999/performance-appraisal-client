@@ -48,7 +48,7 @@ export class CreateCriteriaComponent implements OnInit {
         this.criteriaGroup = new criteriaGroupModel();
         alert("criteria group Created");
         console.log('response: ' + res);
-        this.router.navigate(["admin/view-pa"]);
+        this.router.navigate(["admin/view-criteria"]);
 
       },
       error: (err) => {

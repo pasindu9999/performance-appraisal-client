@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DepartmentModel } from 'src/app/models/department.model';
 import { DepartmentService } from 'src/app/services/department.service';
 
@@ -11,7 +12,7 @@ export class CreateDepartmentComponent implements OnInit {
   department = new DepartmentModel();
   isCreating = false;
 
-  constructor(private departmentService : DepartmentService) { }
+  constructor(private departmentService : DepartmentService ,private router: Router) { }
 
   ngOnInit(): void {}
 
@@ -22,6 +23,8 @@ export class CreateDepartmentComponent implements OnInit {
       next: (res) => {
         this.isCreating = false;
         this.department = new DepartmentModel();
+        alert("Department created");
+        this.router.navigate(["admin/departments-list"]);
       },
       error: (err) => {
         this.isCreating = false;

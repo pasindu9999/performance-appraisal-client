@@ -20,12 +20,14 @@ export class AdminPaComponent implements OnInit {
     this.getList();
   }
 
+
   getList() {
     this.isLoading = true;
     this.pasheetService.getList().subscribe({
       next: (res) => {
         this.paList = res;
         this.isLoading = false;
+        console.log(this.paList);
       },
       error: (error) => {
         console.log(error);
@@ -50,6 +52,11 @@ export class AdminPaComponent implements OnInit {
     })
   }
 }
+
+view(id: string){
+  localStorage.setItem('id',JSON.stringify(id))
+}
+
 
   edit(id: string){
 

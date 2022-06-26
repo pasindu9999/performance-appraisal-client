@@ -20,12 +20,12 @@
               <form #form="ngForm" (ngSubmit)="onSubmit()" autocomplete="off">
 
                 <div class="pl-lg-4">
-                  <div class="row">
+                  <!-- <div class="row">
                     <div>
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-username">Department</label>
                         <input type="text" id="input-username" class="form-control form-control-alternative"
-                        name="department" required #department="ngModel" [(ngModel)]="pasheet.department"  pattern="^[A-Z]*$"
+                        name="department" required #department="ngModel" [(ngModel)]="pasheet.department"  pattern="^[A-Z][a-z]*$"
                         placeholder="Department" value="IT">
                         <span class="text-danger"
                           *ngIf="(department.touched||form.submitted)&& department.errors?.['required']">
@@ -37,20 +37,20 @@
                   </span>
                       </div>
                     </div>
-                  </div>
-                    <div class="row">
-                      <div>
-                        <div class="form-group focused">
-                          <label class="form-control-label" for="input-username">Department Head Name</label>
-                        <input type="text" id="input-username" class="form-control form-control-alternative"
-                        name="dep_Head_Name"  required #dep_Head_Name="ngModel" [(ngModel)]="pasheet.dep_Head_Name" placeholder="Department Head Name">
-                        <span class="text-danger"
-                          *ngIf="(dep_Head_Name.touched||form.submitted)&& dep_Head_Name.errors?.['required']">
-                          Department Head Name is required
-                        </span>
-                        </div>
+                  </div> -->
+
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-designation">Department</label>
+                        <select class="form-control" id="exampleFormControlSelect1" name="departmentId" #departmentId="ngModel" [(ngModel)]=" pasheet.departmentId" >
+                          <option value="0">-- select department--</option>
+                          <option *ngFor="let department of departments" [value]="department.id">{{department.name}}</option>
+                        </select>
                       </div>
                     </div>
+                  </div>
+
 
 
                   <div class="row">

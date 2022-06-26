@@ -68,15 +68,10 @@ body {
   outline: 0 !important;
 }
 
-h2{
-  margin-top: 0;
-  margin-bottom: .5rem;
-
-}
+h2,
 h3 {
   margin-top: 0;
   margin-bottom: .5rem;
-  color: white !important;
 }
 
 p {
@@ -135,6 +130,9 @@ img {
 
 table {
   border-collapse: collapse;
+
+  border-color: #000 ;
+
 }
 
 caption {
@@ -147,6 +145,9 @@ caption {
 
 th {
   text-align: inherit;
+  border-radius: 1pt;
+  border-color: #000;
+
 }
 
 button {
@@ -300,6 +301,7 @@ h3,
   margin-right: -15px;
   margin-left: -15px;
   flex-wrap: wrap;
+
 }
 
 .col,
@@ -309,12 +311,15 @@ h3,
   min-height: 1px;
   padding-right: 15px;
   padding-left: 15px;
+
 }
 
 .col {
   max-width: 100%;
   flex-basis: 0;
   flex-grow: 1;
+
+
 }
 
 @media (min-width: 1200px) {
@@ -329,6 +334,7 @@ h3,
   width: 100%;
   margin-bottom: 1rem;
   background-color: transparent;
+
 }
 
 .table th,
@@ -336,11 +342,15 @@ h3,
   padding: 1rem;
   vertical-align: top;
   border-top: 1px solid #e9ecef;
+  border-color: #000 !important;
+
 }
+
+
 
 .table thead th {
   vertical-align: bottom;
-  border-bottom: 2px solid #e9ecef;
+  border-bottom: 2px solid #000000 !important;
 }
 
 .table tbody + tbody {
@@ -358,9 +368,15 @@ h3,
 }
 
 .table .thead-dark th {
-  color: #f8f9fe;
-  border-color: #1f3a68;
-  background-color: #172b4d;
+  color: #f8f9fe !important;
+
+  background-color: #ff0000 !important;
+  border-radius: 15 px !important;
+  border-color: #000 !important;
+  font-size: medium;
+  font-weight: bold;
+
+
 }
 
 .table .thead-light th {
@@ -370,14 +386,14 @@ h3,
 }
 
 .table-dark {
-  color: #f8f9fe;
-  background-color: #172b4d;
+  color: #0027e8;
+  background-color: #ff2104!important;
 }
 
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
-  border-color: #1f3a68;
+  border-color: #000000;
 }
 
 .table-responsive {
@@ -1057,11 +1073,12 @@ h3 {
 
   .table {
       border-collapse: collapse !important;
+      border-color: #000;
   }
 
   .table td,
 .table th {
-      background-color: #fff !important;
+      background-color: white !important;
   }
 
   .table-dark {
@@ -1072,7 +1089,7 @@ h3 {
 .table-dark td,
 .table-dark thead th,
 .table-dark tbody + tbody {
-      border-color: #e9ecef;
+      border-color: #000000;
   }
 
   .table .thead-dark th {
@@ -1433,6 +1450,7 @@ a.btn-icon-only {
   letter-spacing: 1px;
   text-transform: uppercase;
   border-bottom: 1px solid #e9ecef;
+
 }
 
 .table th {

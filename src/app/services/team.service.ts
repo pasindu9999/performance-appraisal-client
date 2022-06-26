@@ -6,21 +6,26 @@ import { TeamModel } from '../models/team.model';
   providedIn: 'root',
 })
 export class TeamService {
-  private _baseUrl = 'https://localhost:44340/api/team';
+  private _baseUrl = 'https://localhost:5001/api/team';
 
   constructor(private http: HttpClient) {}
 
   getList() {
     return this.http.get<TeamModel[]>(`${this._baseUrl}/list`);
   }
-
+  getListbyDepartmentId(departmentId:string) {
+    return this.http.get<TeamModel[]>(`${this._baseUrl}/by-departmentid?departmentid=`+departmentId);
+  }
+  getTeam(id:string) {
+    return this.http.get<TeamModel[]>(`${this._baseUrl}/by-id?id=`+id);
+  }
   create(team: TeamModel) {
-    return this.http.post<string>(`${this._baseUrl}/create`, team);
+    return this.http.post(`${this._baseUrl}/create`, team,{responseType: 'text'});
   }
   update(team: TeamModel) {
-    return this.http.post<string>(`${this._baseUrl}/update`, team);
+    return this.http.put(`${this._baseUrl}/update`, team, {responseType: 'text'});
   }
   delete(id : any) {
-    return this.http.delete<string>(`${this._baseUrl}/delete?id=`+id);
+    return this.http.delete(`${this._baseUrl}/delete?id=`+id,{responseType: 'text'});
   }
 }

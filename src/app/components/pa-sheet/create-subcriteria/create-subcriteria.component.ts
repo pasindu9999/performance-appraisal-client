@@ -44,7 +44,7 @@ export class CreateSubcriteriaComponent implements OnInit {
         this.criteria = new criteriaModel();
         alert("criteria  Created");
         console.log('response: ' + res);
-        this.router.navigate(["admin/view-pa"]);
+        this.router.navigate(["admin/view-criteria"]);
 
       },
       error: (err) => {

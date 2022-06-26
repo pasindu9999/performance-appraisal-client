@@ -1,24 +1,16 @@
 <br><br>
 
-<br>
 
-<div class="container">
-  <button type="button" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-criteria">
-    Create new Criteria Group
-  </button>
 
-  <button type="button" class="btn btn-primary" style="border-radius:5px; float: right;" routerLink="../create-subcriteria">
-    Create new Criteria
-  </button>
-</div>
 
-<br><br>
+
+
 
 
 
 <br>
 
-<div class="col">
+<!-- <div class="col">
   <div class="card shadow">
 
 
@@ -64,9 +56,69 @@
 
         <tr class="table-tr-crit" style="font-weight: bold;  border-top: solid black; border-bottom: solid black; text-align: center;color: red;">
           <td>PA Score for this section</td>
-          <td style="text-align:left ;"></td>
-          <td style="text-align:left ;"></td>
-          <td style="text-align:left ;"></td>
+          <td style="text-align:left ;">h</td>
+          <td style="text-align:left ;">hd</td>
+          <td style="text-align:left ;">fd</td>
+          <td></td>
+      </tr>
+
+
+      </tbody>
+    </table>
+
+  </div>
+</div> -->
+
+
+<div class="col">
+  <div class="card shadow">
+
+
+
+    <table class="table table-hover">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col-2">Performance Appraisal Criteria</th>
+          <th scope="col-3">Employee Self Rating</th>
+          <th scope="col-3">Peer Rating</th>
+          <th scope="col-4">Team Lead Rating</th>
+          <th scope="col-4">Action</th>
+
+        </tr>
+      </thead>
+      <tbody *ngFor="let departmentCriteria of  departmentCriteriaList" style="border-width: 0;">
+
+        <tr class="table-danger" style="font-weight: bold;">
+          <td scope="col-2" >
+          {{departmentCriteria.name}}
+           </td>
+          <td scope="col-3">{{departmentCriteria.weightage}}%</td>
+          <td scope="col-3">{{departmentCriteria.weightage}}%</td>
+          <td scope="col-4">{{departmentCriteria.weightage}}%</td>
+          <td scope="col-4">
+            <button (click)="edit(departmentCriteria.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-sm btn-primary" routerLink="../edit-criteria">Edit</button>
+
+            <button (click)="delete(departmentCriteria.id)" type="button" class="btn btn-sm btn-danger">Delete</button>
+
+
+        </td>
+
+        </tr>
+        <tr *ngFor="let criteria of  criterias" (click)="editcriteria(criteria.id)" routerLink="../edit-subcriteria">
+            <td *ngIf="departmentCriteria.criteriaGroupId ==criteria.groupId">{{criteria.name}}</td>
+            <td *ngIf="departmentCriteria.criteriaGroupId ==criteria.groupId"></td>
+            <td *ngIf="departmentCriteria.criteriaGroupId ==criteria.groupId"></td>
+            <td *ngIf="departmentCriteria.criteriaGroupId ==criteria.groupId"></td>
+            <td *ngIf="departmentCriteria.criteriaGroupId ==criteria.groupId">
+          </td>
+
+        </tr>
+
+        <tr class="table-tr-crit" style="font-weight: bold;  border-top: solid black; border-bottom: solid black; text-align: center;color: red;">
+          <td>PA Score for this section</td>
+          <td style="text-align:left ;">h</td>
+          <td style="text-align:left ;">hd</td>
+          <td style="text-align:left ;">fd</td>
           <td></td>
       </tr>
 
@@ -76,5 +128,4 @@
 
   </div>
 </div>
-
 

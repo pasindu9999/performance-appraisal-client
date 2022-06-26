@@ -12,7 +12,7 @@
 <div class="col">
   <div class="card shadow">
 
-    
+
     <table class="table table-hover">
       <thead class="thead-dark">
         <tr>
@@ -22,18 +22,18 @@
 
         </tr>
       </thead>
-      <tbody *ngFor="let pa of criteriaGroups" style="border-width: 0;">
+      <tbody *ngFor="let departmentCriteria of  departmentCriteriaList" style="border-width: 0;">
 
         <tr class="table-primary" style="font-weight: bold;">
-          <td scope="col-2">{{pa.name}}</td>
-          <td scope="col-3">{{pa.weightages}}%</td>
+          <td scope="col-2">{{departmentCriteria.name}}</td>
+          <td scope="col-3">{{departmentCriteria.weightage}}%</td>
 
 
         </tr>
         <tr *ngFor="let pa1 of criterias">
-            <td *ngIf="pa.id ==pa1.groupId">{{pa1.name}}</td>
+            <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">{{pa1.name}}</td>
 
-            <td *ngIf="pa.id ==pa1.groupId">
+            <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">
               <select class="form-control form-control-sm">
                 <option selected>Score</option>
                 <option value="1">1</option>

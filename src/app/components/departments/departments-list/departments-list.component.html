@@ -14,22 +14,21 @@
       <table class="table align-items-center table-flush">
         <thead class="thead-light">
           <tr>
-            <th scope="col">ID</th>
             <th scope="col">Department Name</th>
             <th scope="col">Department Head</th>
             <th scope="col">No Of Employee</th>
-            <th class="text-right">Action</th>
+            <th class="text-center">Action</th>
           </tr>
         </thead>
         <tbody>
-          <tr  routerLink="../view-department">
-            <th scope="row">D1000</th>
+          <tr>
             <td>IT</td>
             <td>Samitha Ransinghe</td>
             <td>15</td>
             <td class="text-right">
               <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../create-department">Edit</button>
-              <button type="button" class="btn btn-danger mx-3">Delete</button>
+              <button type="button" class="btn btn-danger mx-3" routerLink="../departments-list">Delete</button>
+              <button type="button" class="btn btn-success mx-3" routerLink="../view-department">View</button>
             </td>
             <!--td class="text-right">
               <div class="dropdown">
@@ -44,19 +43,20 @@
               </!--div>
             </td-->
           </tr>
-          <tr *ngFor="let department of departmentList" routerLink="../view-department">
-            <th scope="row">D{{department.regNo}}</th>
-            <td>{{department.name}}</td>
-            <td>{{department.departmentHead}}</td>
+          <tr *ngFor="let department of departmentList">
+            <td scope="row">{{department.name}}</td>
+            <td>{{department.departmentHeadFirstName}}</td>
             <td>{{department.noOfEmployees}}</td>
             <td td class="text-right">
-              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../create-department">Edit</button>
-              <button (click)="delete(department)" type="button" class="btn btn-danger mx-3" routerLink="../departments-list">Delete</button>
+              <button (click)="edit(department.id)" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../edit-department">Edit</button>
+              <button (click)="delete(department.id)" type="button" class="btn btn-danger mx-3" routerLink="../departments-list">Delete</button>
+              <button (click)="view(department.id)" type="button" class="btn btn-success mx-3" routerLink="../view-department">View</button>
             </td>
           </tr>
         </tbody>
       </table>
+     
     </div>
   </div>
-</div>
 
+</div>

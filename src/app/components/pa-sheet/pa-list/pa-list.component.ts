@@ -12,6 +12,7 @@ export class PaListComponent implements OnInit {
   isLoading = false;
   paList: PAsheetModel[] | undefined;
 
+
   constructor(private pasheetService: PAsheetService) { }
 
   ngOnInit(): void {
@@ -33,7 +34,11 @@ export class PaListComponent implements OnInit {
     });
   }
 
- 
+  view(id: string){
+    localStorage.setItem('id',JSON.stringify(id))
+  }
+
+
 
   edit(id: string){
 

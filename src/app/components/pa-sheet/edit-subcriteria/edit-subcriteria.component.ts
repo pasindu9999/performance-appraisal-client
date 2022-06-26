@@ -48,7 +48,7 @@ export class EditSubcriteriaComponent implements OnInit {
         this.isUpdating = false;
         alert("PA sheet Updated");
         console.log('response: ' + res);
-        this.router.navigate(["admin/view-pa"]);
+        this.router.navigate(["admin/view-criteria"]);
       },
       error: (err) => {
         this.isUpdating = false;
@@ -83,7 +83,7 @@ export class EditSubcriteriaComponent implements OnInit {
 
       this.getList();
       alert("Criteria Delete Successful")
-      this.router.navigate(["admin/view-pa"]);
+      this.router.navigate(["admin/view-criteria"]);
     },
     error=>{
       console.log(error);

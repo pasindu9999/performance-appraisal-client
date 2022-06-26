@@ -1,8 +1,12 @@
 export class TeamModel {
+  id! : string;
   regNo!: string;
   name!: string;
-  departmentName!: string;
-  leaderName! : string;
+  departmentId!: string;
+  departmentName! : string;
   description!: string;
   noOfEmployees!: number;
+  teamLeaderId! : string;
+  teamLeaderFirstName! : string;
+  teamName! : string;
 }
