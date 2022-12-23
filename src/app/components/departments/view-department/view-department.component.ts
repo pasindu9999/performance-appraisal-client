@@ -34,9 +34,11 @@ export class ViewDepartmentComponent implements OnInit {
 
   ngOnInit(): void {
     this.departmentId = JSON.parse(localStorage.getItem('id') || '{}');
+    console.log( this.departmentId);
     this.getDepartment(this.departmentId);
     this.getListbyDepartmentId(this.departmentId);
     this.getList(this.departmentId);
+    // this.getWeightages(this.departmentId);
     this.getCriteriaGroups();
   }
 
@@ -80,13 +82,31 @@ export class ViewDepartmentComponent implements OnInit {
     });
   }
 
+  // getWeightages(departmentId : string){
+  //   this.isLoading = true;
+  //   this.departmentCriteriaService.getTotalWeightage(departmentId).subscribe({
+  //     next: (res) => {
+  //       this.departmentCriteriaList = res;
+  //       console.log(res);
+  //       this.isLoading = false;
+  //     },
+  //     error: (error) => {
+  //       console.log(error);
+  //       this.isLoading = false;
+  //     },
+  //   });
+
+  // }
+
+
+
   getList(id:string){
     console.log('hi');
     //this.isLoading = true;
     this.departmentCriteriaService.getList(id).subscribe({
       next: (res) => {
         this.departmentCriteriaList = res;
-        console.log('this.departmentCriterias');
+
         console.log(this.departmentCriteriaList);
         //this.isLoading = false;
       },
@@ -97,13 +117,27 @@ export class ViewDepartmentComponent implements OnInit {
     });
   }
 
+  getAllList() {
+    this.isLoading = true;
+    this.departmentCriteriaService.getAllList().subscribe({
+      next: (res) => {
+        this.departmentCriteriaList = res;
+        this.isLoading = false;
+      },
+      error: (error) => {
+        console.log(error);
+        this.isLoading = false;
+      },
+    });
+  }
+
   getCriteriaGroups(){
-    console.log('hi');
+
     //this.isLoading = true;
     this.criteriaGroupService.getList().subscribe({
       next: (res) => {
         this.criteriaGroups = res;
-        console.log('this.departmentCriterias');
+
         console.log(this.criteriaGroups);
         //this.isLoading = false;
       },
@@ -117,6 +151,47 @@ export class ViewDepartmentComponent implements OnInit {
   view(id: string){
     localStorage.setItem('id',JSON.stringify(id))
   }
+
+  edit(id: string){
+    localStorage.setItem('id',JSON.stringify(id))
+  }
+
+  delete(id: string){
+    console.log(id);
+    if(confirm("Are you sure to delete "+name)) {
+
+
+    this.departmentCriteriaService.delete(id).subscribe(res=>{
+
+      this.getList(this.departmentId);
+      alert("Criteria Delete Successful")
+      //this.router.navigate(["admin/view-criteria"]);
+    },
+    error=>{
+      console.log(error);
+      this.isLoading = false;
+      alert("Something went wrong")
+    })
+  }
+
+}
+
+// delete(id: string){
+//   console.log(id);
+//   if(confirm("Are you sure you want to delete the criteria group")) {
+
+//   this.criteriagroupService.delete(id).subscribe(res=>{
+
+//     this.getList();
+//   },
+//   error=>{
+//     console.log(error);
+//     this.isLoading = false;
+//     alert("Something went wrong")
+//   })
+// }
+
+// }
 
   onSubmit() {
     console.log(this.employee);

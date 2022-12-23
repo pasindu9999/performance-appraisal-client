@@ -1,5 +1,15 @@
 <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet">
 
+<div class="row">
+  <div class="col-lg-5">
+    <h1 class="display-4 font-weight-light">{{paSheet.departmentName}}</h1>
+    <p class="font-italic text-muted">
+      {{paSheet.departmentName}}
+    </p>
+  </div>
+</div>
+<hr>
+
 <body>
   <div class="main-content">
     <div class="container mt-7">
@@ -21,7 +31,7 @@
 
                 <div class="pl-lg-4">
 
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class="col-lg-6">
                       <div class="form-group focused">
                         <label class="form-control-label" for="input-designation">Department</label>
@@ -31,7 +41,18 @@
                         </select>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
+
+                  <!-- <div class="row">
+                    <div>
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">Department Name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative"
+                         name="id"  #id="ngModel" [(ngModel)]="paSheet.departmentName">
+
+                      </div>
+                    </div>
+                  </div> -->
 
 
                   <div class="row">

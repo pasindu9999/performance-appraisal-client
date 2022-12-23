@@ -25,21 +25,37 @@ export class CreatePAComponent implements OnInit {
 
   onSubmit() {
     this.isCreating = true;
-    this.pasheetService.create(this.pasheet).subscribe({
-      next: (res) => {
+    if(this.pasheet.start_date > this.pasheet.due_date){
 
-        console.log(this.pasheet);
-        this.isCreating = false;
-        this.pasheet = new PAsheetModel();
-        alert("PA sheet Created");
-        console.log('response: ' + res);
-        this.router.navigate(["admin/admin-pa"]);
-      },
-      error: (err) => {
-        this.isCreating = false;
-        console.log(this.pasheet);
-      },
-    });
+      alert("Start date should be before due date");
+      return;
+    }
+
+    else{
+      this.pasheetService.create(this.pasheet).subscribe({
+
+
+        next: (res) => {
+
+
+
+            console.log(this.pasheet);
+            this.isCreating = false;
+            this.pasheet = new PAsheetModel();
+            alert("PA sheet Created");
+            console.log('response: ' + res);
+            this.router.navigate(["admin/admin-pa"]);
+
+
+
+        },
+        error: (err) => {
+          this.isCreating = false;
+          console.log(this.pasheet);
+        },
+      });
+    }
+
   }
 
   getDepartments(){

@@ -11,6 +11,7 @@ import { DepartmentService } from 'src/app/services/department.service';
 export class CreateDepartmentComponent implements OnInit {
   department = new DepartmentModel();
   isCreating = false;
+  
 
   constructor(private departmentService : DepartmentService ,private router: Router) { }
 
@@ -18,7 +19,7 @@ export class CreateDepartmentComponent implements OnInit {
 
   onSubmit() {
     this.isCreating = true;
-    alert("Department created");
+
     this.departmentService.create(this.department).subscribe({
       next: (res) => {
         this.isCreating = false;

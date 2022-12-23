@@ -18,16 +18,29 @@ export class DepartmentCriteriaService {
     return this.http.post(`${this._baseUrl}/create`,departmentCriteria, {responseType: 'text'});
   }
 
-  
+  getAllList() {
+    return this.http.get<DepartmentCriteriaModel[]>(`${this._baseUrl}/list`);
+  }
 
-  delete(id:string){
-    // const httpparams = new HttpParams({
-    //   fromObject : {
-    //     panelid : pid,
-    //     reviwerid : rid
-    //   }
-    // })
-    return this.http.delete(`${this._baseUrl}/delete?id=`+id, {responseType: 'text'});
+  getTotalWeightage(id:string) {
+    return this.http.get<number>(`${this._baseUrl}/by-depId?departmentId=` +id);
+  }
+
+  update(departmentCriteria: DepartmentCriteriaModel) {
+    return this.http.put(`${this._baseUrl}/update`,departmentCriteria, {responseType: 'text'});
+  }
+  // delete(id:string){
+  //   const httpparams = new HttpParams({
+  //     fromObject : {
+  //       panelid : pid,
+  //       reviwerid : rid
+  //     }
+  //   })
+  //   return this.http.delete(`${this._baseUrl}/delete?id=`+id, {responseType: 'text'});
+  // }
+
+  delete(id:any){
+    return this.http.delete(`${this._baseUrl}/delete?id=`+id, {responseType:'text'});
   }
 
 

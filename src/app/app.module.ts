@@ -37,6 +37,10 @@ import { EditDepartmentComponent } from './components/departments/edit-departmen
 import { EditTeamComponent } from './components/teams/edit-team/edit-team.component';
 import { ViewCriteriaComponent } from './components/pa-sheet/view-criteria/view-criteria.component';
 import { CreateDepcriteriaComponent } from './components/departments/create-depcriteria/create-depcriteria.component';
+import { RevieweesbyPasheetComponent } from './components/pa-sheet/revieweesby-pasheet/revieweesby-pasheet.component';
+import { EditDepcriteriaComponent } from './components/departments/edit-depcriteria/edit-depcriteria.component';
+import { NewComponentComponent } from './components/departments/new-component/new-component.component';
+
 
 
 
@@ -74,7 +78,11 @@ import { CreateDepcriteriaComponent } from './components/departments/create-depc
     EditDepartmentComponent,
     EditTeamComponent,
     ViewCriteriaComponent,
-    CreateDepcriteriaComponent
+    CreateDepcriteriaComponent,
+    RevieweesbyPasheetComponent,
+    EditDepcriteriaComponent,
+    NewComponentComponent,
+
 
 
 

@@ -12,6 +12,7 @@ export class AdminPaComponent implements OnInit {
 
   isLoading = false;
   paList: PAsheetModel[] | undefined;
+  pasheets = new PAsheetModel();
 
   constructor(private pasheetService: PAsheetService, private router : Router) { }
 
@@ -23,10 +24,12 @@ export class AdminPaComponent implements OnInit {
 
   getList() {
     this.isLoading = true;
+
     this.pasheetService.getList().subscribe({
       next: (res) => {
         this.paList = res;
         this.isLoading = false;
+        console.log(this.pasheets.start_date);
         console.log(this.paList);
       },
       error: (error) => {

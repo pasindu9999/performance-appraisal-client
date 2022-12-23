@@ -25,6 +25,9 @@ import { EditSubcriteriaComponent } from './components/pa-sheet/edit-subcriteria
 import { AdminPaComponent } from './components/pa-sheet/admin-pa/admin-pa.component';
 import { ViewCriteriaComponent } from './components/pa-sheet/view-criteria/view-criteria.component';
 import { CreateDepcriteriaComponent } from './components/departments/create-depcriteria/create-depcriteria.component';
+import { RevieweesbyPasheetComponent } from './components/pa-sheet/revieweesby-pasheet/revieweesby-pasheet.component';
+import { EditDepcriteriaComponent } from './components/departments/edit-depcriteria/edit-depcriteria.component';
+
 
 
 
@@ -57,7 +60,8 @@ const routes: Routes = [
       { path: 'admin-pa', component: AdminPaComponent},
       { path: 'view-criteria', component: ViewCriteriaComponent},
       { path: 'create-depcriteria', component: CreateDepcriteriaComponent},
-
+      { path: 'revieweesby-pasheet', component: RevieweesbyPasheetComponent},
+      { path: 'edit-depcriteria', component: EditDepcriteriaComponent},
       { path: '', redirectTo: 'dashboard', pathMatch: 'full' },
 
     ],

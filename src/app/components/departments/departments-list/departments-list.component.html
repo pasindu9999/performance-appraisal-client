@@ -21,28 +21,7 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>IT</td>
-            <td>Samitha Ransinghe</td>
-            <td>15</td>
-            <td class="text-right">
-              <button type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary" routerLink="../create-department">Edit</button>
-              <button type="button" class="btn btn-danger mx-3" routerLink="../departments-list">Delete</button>
-              <button type="button" class="btn btn-success mx-3" routerLink="../view-department">View</button>
-            </td>
-            <!--td class="text-right">
-              <div class="dropdown">
-                <a class="btn btn-sm btn-icon-only text-light" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                  <i class="fas fa-ellipsis-v"></i>
-                </a>
-                <div class="dropdown-menu dropdown-menu-right dropdown-menu-arrow">
-                  <a class="dropdown-item" href="#">View</a>
-                  <a class="dropdown-item" href="#">Edit</a>
-                  <a class="dropdown-item" href="#">Delete</a>
-                </div>
-              </!--div>
-            </td-->
-          </tr>
+          
           <tr *ngFor="let department of departmentList">
             <td scope="row">{{department.name}}</td>
             <td>{{department.departmentHeadFirstName}}</td>
@@ -55,7 +34,7 @@
           </tr>
         </tbody>
       </table>
-     
+
     </div>
   </div>
 

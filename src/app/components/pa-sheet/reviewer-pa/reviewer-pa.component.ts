@@ -10,6 +10,7 @@ import { ResultModel } from 'src/app/models/result.model';
 import { DepartmentCriteriaModel } from 'src/app/models/departmentCriteria.model';
 import { DepartmentCriteriaService } from 'src/app/services/departmentCriteria.service';
 
+
 @Component({
   selector: 'app-reviewer-pa',
   templateUrl: './reviewer-pa.component.html',
@@ -23,19 +24,24 @@ export class ReviewerPaComponent implements OnInit {
   criterias: criteriaModel[] | undefined;
   criteria : any;
   isUpdating = false;
+  isCreating = false;
   id : string='';
   departmentId : string = '';
   departmentCriteriaList : DepartmentCriteriaModel[] | undefined  ;
+  resultList : ResultModel[] | undefined  ;
+  results = new ResultModel();
+  x : number = 0;
+  results1 = new ResultModel();
 
-
-
-  constructor(private criteriagroupService : CriteriaGroupService , private criteriaService :  CriteriaService, private resultService : ResultService, private departmentCriteriaService : DepartmentCriteriaService) { }
+  constructor(private criteriagroupService : CriteriaGroupService , private criteriaService :  CriteriaService, private resultService : ResultService, private departmentCriteriaService : DepartmentCriteriaService, private router : Router) { }
 
   ngOnInit(): void {
     this.getList();
     this.departmentId = JSON.parse(localStorage.getItem('id') || '{}');
     console.log(this.departmentId)
     this.getCriteriaGroupList(this.departmentId);
+    this.results.reviweeId = "CCA10BA7-D293-42E3-6C0A-08DA58318A9E" ;
+    this.results.reviwerId = "8401D06C-9A3E-425E-EEFF-08DA584D36F3" ;
   }
 
   getList() {
@@ -93,21 +99,34 @@ export class ReviewerPaComponent implements OnInit {
 
   }
 
-  onSubmit() {
-    console.log(this.criteria);
-    this.isUpdating = true;
-    this.show=false;
-    this.criteriaService.update(this.criteria).subscribe({
+  onSubmit(c_Id: string, ind: number) {
+    this.results.criteriaId = c_Id;
+    this.results.marks = this.results.markSelected[ind];
+    this.isCreating = true;
+
+    this.x = this.results.marks.valueOf();
+    console.log(this.x);
+    this.results1.marks = this.x;
+    this.results1.criteriaId = this.results.criteriaId;
+    this.results1.reviweeId = this.results.reviweeId;
+    this.results1.reviwerId = this.results.reviwerId;
+
+    console.log("hi");
+    console.log(this.results1);
+    this.resultService.create(this.results1).subscribe({
       next: (res) => {
-        this.isUpdating = false;
-        alert("Criteria Updated");
+        this.isCreating = false;
+        this.results1 = new ResultModel();
+        alert("successfully reviewed");
         console.log('response: ' + res);
+        //this.router.navigate(["admin/view-criteria"]);
 
       },
       error: (err) => {
-        this.isUpdating = false;
-        console.log('Error: ' + err)
+        console.log(this.results1);
+        this.isCreating = false;
       },
     });
+
   }
 }

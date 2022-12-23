@@ -19,12 +19,16 @@ export class EditPaComponent implements OnInit {
   paSheet : any;
   routeListener: any;
   departments : DepartmentModel[] | undefined ;
+  paSheets :PAsheetModel[] | undefined ;
+  paSheetList = new PAsheetModel();
 
   constructor(private pasheetService : PAsheetService ,private route: ActivatedRoute , private router: Router, private departmentService : DepartmentService) { }
 
   ngOnInit(): void {
     this.id = JSON.parse(localStorage.getItem('id') || '{}');
      console.log(this.id);
+     console.log(this.paSheetList);
+     this.paSheetList.id = this.id;
     this.pasheetService.getPAsheet(this.id).subscribe({
       next: (res)=>{
         this.paSheet = res;
@@ -39,18 +43,28 @@ export class EditPaComponent implements OnInit {
   onSubmit() {
     console.log(this.paSheet);
     this.isUpdating = true;
-    this.pasheetService.update(this.paSheet).subscribe({
-      next: (res) => {
-        this.isUpdating = false;
-        alert("PA sheet Updated");
-        console.log('response: ' + res);
-        this.router.navigate(["admin/admin-pa"]);
-      },
-      error: (err) => {
-        this.isUpdating = false;
-        console.log('Error: ' + err)
-      },
-    });
+    if(this.paSheet.start_date > this.paSheet.due_date){
+
+      alert("Start date should be before due date");
+      return;
+    }
+
+    else{
+
+      this.pasheetService.update(this.paSheet).subscribe({
+        next: (res) => {
+          this.isUpdating = false;
+          alert("PA sheet Updated");
+          console.log('response: ' + res);
+          this.router.navigate(["admin/admin-pa"]);
+        },
+        error: (err) => {
+          this.isUpdating = false;
+          console.log('Error: ' + err)
+        },
+      });
+    }
+
   }
 }
 

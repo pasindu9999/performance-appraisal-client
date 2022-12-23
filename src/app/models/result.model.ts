@@ -1,8 +1,17 @@
 export class ResultModel{
 
-  id!: string;
+  id! : string;
   criteriaId! : string;
-  ReviwerId! : string;
-  ReviweeId! : string;
-  Marks! : number;
+  groupId! : string;
+  groupName! : string;
+  totalMarks! : number;
+  reviweeId! : string;
+  reviwerId! : string;
+  reviwerName!: string;
+  panelId! : string;
+  averageMarks! : number;
+  totalreviweemark! : number;
+  noOfCriteria! : number;
+  marks! : number;
+  markSelected: number[] = [];
 }

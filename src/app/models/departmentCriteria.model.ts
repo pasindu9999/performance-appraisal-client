@@ -6,4 +6,5 @@ export class DepartmentCriteriaModel {
   weightage! : number;
   criteriaGroupId! : string;
   departmentId! : string;
+  totalWeightage! : number;
 }

@@ -6,11 +6,11 @@ import { DepartmentCriteriaModel } from 'src/app/models/departmentCriteria.model
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-create-depcriteria',
-  templateUrl: './create-depcriteria.component.html',
-  styleUrls: ['./create-depcriteria.component.css']
+  selector: 'app-edit-depcriteria',
+  templateUrl: './edit-depcriteria.component.html',
+  styleUrls: ['./edit-depcriteria.component.css']
 })
-export class CreateDepcriteriaComponent implements OnInit {
+export class EditDepcriteriaComponent implements OnInit {
 
   departmentId : string = '';
   isLoading = false;
@@ -20,21 +20,20 @@ export class CreateDepcriteriaComponent implements OnInit {
   // cshow : Boolean = true;
   id : string = '';
   employee: any;
-  isUpdating : Boolean = false;
+ // isUpdating : Boolean = false;
   //criteriaGroups : criteriaGroupModel[] | undefined  ;
   criteriaGroups : criteriaGroupModel[] | undefined ;
   isCreating = false;
   weightage: number = 0;
+  isUpdating = false;
 
   constructor(private criteriaGroupService : CriteriaGroupService, private departmentCriteriaService : DepartmentCriteriaService, private router : Router) { }
 
   ngOnInit(): void {
-      this.getCriteriaGroups();
-      this.departmentId = JSON.parse(localStorage.getItem('id') || '{}');
-      this.getWeightages(this.departmentId);
-
-      console.log(this.departmentId);
-
+    this.departmentId = JSON.parse(localStorage.getItem('id') || '{}');
+    console.log(this.departmentId);
+    this.getCriteriaGroups();
+    this.getWeightages(this.departmentId);
   }
 
   getCriteriaGroups(){
@@ -49,20 +48,6 @@ export class CreateDepcriteriaComponent implements OnInit {
       },
       error: (error) => {
         console.log('error');
-        this.isLoading = false;
-      },
-    });
-  }
-
-  getAllList() {
-    this.isLoading = true;
-    this.departmentCriteriaService.getAllList().subscribe({
-      next: (res) => {
-        this.departmentCriterias = res;
-        this.isLoading = false;
-      },
-      error: (error) => {
-        console.log(error);
         this.isLoading = false;
       },
     });
@@ -85,70 +70,15 @@ export class CreateDepcriteriaComponent implements OnInit {
     });
   }
 
-  // showCriteriaGroups(){
-  //   this.criteriaGroupService.getList().subscribe(
-  //     (data: any)=>{
-  //       this.criteriaGroup = data,
-  //       console.log(this.criteriaGroup);
-  //     }
-  //   )
-  // }
-  // onSubmit() {
-  //   this.isCreating = true;
-  //   console.log("hi");
-  //   console.log(this.criteria);
-  //   this.criteriaService.create(this.criteria).subscribe({
-  //     next: (res) => {
-  //       this.isCreating = false;
-  //       this.criteria = new criteriaModel();
-  //       alert("criteria  Created");
-  //       console.log('response: ' + res);
-  //       this.router.navigate(["admin/view-criteria"]);
-
-  //     },
-  //     error: (err) => {
-  //       console.log(this.criteria);
-  //       this.isCreating = false;
-  //     },
-  //   });
-
-  // }
-  view(id: string){
-    localStorage.setItem('id',JSON.stringify(id))
-  }
-
-  delete(id: string){
-    console.log(id);
-    if(confirm("Are you sure to delete "+name)) {
-
-
-    this.departmentCriteriaService.delete(id).subscribe(res=>{
-
-      this.getAllList();
-      alert("Criteria Delete Successful")
-      //this.router.navigate(["admin/view-criteria"]);
-    },
-    error=>{
-      console.log(error);
-      this.isLoading = false;
-      alert("Something went wrong")
-    })
-  }
-
-}
-
-
-
-
   onSubmit() {
-    this.isCreating = true;
+    this.isUpdating = true;
 
     this.departmentCriteriaList.departmentId = this.departmentId;
 
     if(this.weightage + this.departmentCriteriaList.weightage > 100){
       alert("Total weightage exceeds 100")
     }else{
-      this.departmentCriteriaService.create(this.departmentCriteriaList).subscribe({
+      this.departmentCriteriaService.update(this.departmentCriteriaList).subscribe({
         next: (res) => {
 
           if(res == "Alredy added"){
@@ -157,7 +87,7 @@ export class CreateDepcriteriaComponent implements OnInit {
           }
 
           else{
-            this.isCreating = false;
+            this.isUpdating = false;
             this.departmentCriteriaList = new DepartmentCriteriaModel();
             console.log(res);
             alert("criteria  Created");
@@ -169,7 +99,7 @@ export class CreateDepcriteriaComponent implements OnInit {
         },
         error: (err) => {
           console.log(this.departmentCriteriaList);
-          this.isCreating = false;
+          this.isUpdating = false;
           alert("error");
         },
       });

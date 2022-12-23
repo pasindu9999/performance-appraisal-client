@@ -2,7 +2,6 @@
 <br><br>
 
 
-
 <br>
 
 
@@ -19,7 +18,7 @@
           <th scope="col-2">Performance Appraisal Criteria</th>
 
           <th scope="col-4">Rating</th>
-
+          <th></th>
         </tr>
       </thead>
       <tbody *ngFor="let departmentCriteria of  departmentCriteriaList" style="border-width: 0;">
@@ -27,14 +26,14 @@
         <tr class="table-primary" style="font-weight: bold;">
           <td scope="col-2">{{departmentCriteria.name}}</td>
           <td scope="col-3">{{departmentCriteria.weightage}}%</td>
-
+          <td></td>
 
         </tr>
-        <tr *ngFor="let pa1 of criterias">
+        <!-- <tr *ngFor="let pa1 of criterias">
             <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">{{pa1.name}}</td>
 
             <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">
-              <select class="form-control form-control-sm">
+              <select class="form-control form-control-sm" name="marks" #marks="ngModel" [(ngModel)]="results.marks">
                 <option selected>Score</option>
                 <option value="1">1</option>
                 <option value="2">2</option>
@@ -45,7 +44,23 @@
             </td>
 
 
-        </tr>
+        </tr> -->
+
+        <tr *ngFor="let pa1 of criterias; let i = index">
+          <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">{{pa1.name}}</td>
+          <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId">
+            <select class="form-control form-control-sm" name="marks" id="marks" [(ngModel)]="results.markSelected[i]">
+              <option selected>Score</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </td>
+          <td *ngIf="departmentCriteria.criteriaGroupId ==pa1.groupId"><button type="button" class="btn btn-sm btn-dark mx-3" (click)="onSubmit(pa1.id, i)">submit</button></td>
+
+      </tr>
 
 
       </tbody>
@@ -59,7 +74,7 @@
 
 <div class="container">
 
-  <button type="button" class="btn btn-success btn-lg" style="border-radius:5px; float: right; padding: 16px 24px;">
+  <!-- <button type="button" class="btn btn-success btn-lg" style="border-radius:5px; float: right; padding: 16px 24px;">
     Submit
-  </button>
+  </button> -->
 </div>

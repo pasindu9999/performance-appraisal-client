@@ -8,7 +8,7 @@
         {{department.description}}
       </p>
       <button type="button" (click)="view(department.id)" class="btn btn-primary" style="border-radius:5px;" routerLink="../create-depcriteria">
-        Define KPI
+        Assign KPI
       </button>
     </div>
   </div>
@@ -136,7 +136,7 @@
     </div>
   </div> -->
   <hr>
-  <div class="col">
+  <!-- <div class="col">
     <div class="card shadow">
       <div class="card-header border-0">
         <h2 class="mb-0">Team List</h2>
@@ -160,9 +160,9 @@
         </table>
       </div>
     </div>
-  </div>
+  </div> -->
   <br>
-  <div class="col">
+  <!-- <div class="col">
     <div class="card shadow">
       <div class="card-header border-0">
         <h2 class="mb-0">Employee List</h2>
@@ -192,7 +192,7 @@
         </table>
       </div>
     </div>
-  </div>
+  </div> -->
   <br>
   <div class="col">
     <div class="card shadow">
@@ -205,12 +205,16 @@
             <tr>
               <th scope="col">Criteria Group</th>
               <th scope="col">Weightage</th>
+              <th scope="col">Action</th>
             </tr>
           </thead>
           <tbody >
             <tr *ngFor="let departmentcriteria of departmentCriteriaList">
               <td>{{departmentcriteria.name}}</td>
               <td>{{departmentcriteria.weightage}}</td>
+              <td>
+                <!-- <button  type="button" (click)="edit(department.id)" routerLink="../edit-depcriteria" data-bs-toggle="modal" data-bs-target="#exampleModal" class="btn btn-primary">Edit</button> -->
+                <button type="button" (click)="delete(departmentcriteria.id)" class="btn btn-danger mx-3">Delete</button></td>
             </tr>
           </tbody>
         </table>
